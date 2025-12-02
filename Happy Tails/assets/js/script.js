@@ -183,7 +183,15 @@ function initFormValidation() {
                 return;
             }
             
-            // If validation passes, show success message
+            // For signin/signup forms, submit to PHP without showing alert
+            if (formId.includes('signin') || formId.includes('sign-in') || 
+                formId.includes('signup') || formId.includes('sign-up')) {
+                // Remove the event listener and submit the form naturally
+                form.submit();
+                return;
+            }
+            
+            // If validation passes, show success message for other forms
             showSuccessMessage(form);
         });
     });
@@ -200,10 +208,10 @@ function showSuccessMessage(form) {
     let redirectToHome = false;
     
     if (formId.includes('signin') || formId.includes('sign-in')) {
-        message = '✅ Welcome back to Happy Tails!\n\nSigning you in... 🐾';
+        // Don't show alert for signin - PHP will handle redirect with message
         redirectToHome = true;
     } else if (formId.includes('signup') || formId.includes('sign-up')) {
-        message = '✅ Account created successfully!\n\nWelcome to the Happy Tails family! 🐶❤️';
+        // Don't show alert for signup - PHP will handle redirect with message
         redirectToHome = true;
     } else if (formId.includes('contact') || form.action.includes('contact')) {
         message = '✅ Thank you for contacting us!\n\nWe\'ll get back to you within 24 hours. 🐾';
@@ -215,14 +223,14 @@ function showSuccessMessage(form) {
         message = '✅ Form submitted successfully!\n\nThank you for your interest in Happy Tails! 🐾';
     }
     
-    alert(message);
+    // Only show alert for non-auth forms
+    if (message && !redirectToHome) {
+        alert(message);
+    }
     
-    // Redirect to home page for sign-in/sign-up forms
+    // For auth forms, form will submit to PHP naturally
     if (redirectToHome) {
-        setTimeout(function() {
-            window.location.href = 'index.html';
-        }, 500);
-        return; // Don't reset form or styling if redirecting
+        return; // Let PHP handle the redirect
     }
     
     // Reset the form after successful submission

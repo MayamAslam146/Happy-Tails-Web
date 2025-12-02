@@ -6,36 +6,17 @@ RewriteEngine On
 # Redirect index.html to index.php
 RewriteRule ^index\.html$ index.php [L,R=301]
 
-# Security Headers
-<IfModule mod_headers.c>
-    # Prevent clickjacking
-    Header set X-Frame-Options "SAMEORIGIN"
-    
-    # XSS Protection
-    Header set X-XSS-Protection "1; mode=block"
-    
-    # Prevent MIME type sniffing
-    Header set X-Content-Type-Options "nosniff"
-    
-    # Referrer Policy
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
-</IfModule>
+# Set default homepage
+DirectoryIndex index.php index.html
 
 # Disable directory browsing
 Options -Indexes
 
-# Protect sensitive files
-<FilesMatch "^(config\.php|\.htaccess|happytails\.sql|INSTALLATION\.md|BACKEND_SUMMARY\.md)$">
+# Protect SQL file from direct access
+<FilesMatch "\.sql$">
     Order allow,deny
     Deny from all
 </FilesMatch>
-
-# PHP Error Handling (for production, set to Off)
-php_flag display_errors Off
-php_flag log_errors On
-
-# Set default homepage
-DirectoryIndex index.php index.html
 
 # Enable compression
 <IfModule mod_deflate.c>
@@ -52,4 +33,3 @@ DirectoryIndex index.php index.html
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
-
