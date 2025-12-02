@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Happy Tails for adoption inquiries, volunteering, or general questions. We're here to help!">
+    <meta name="keywords" content="contact happy tails, puppy adoption contact, volunteer, get in touch">
+    <meta name="author" content="Happy Tails">
+    
+    <!-- Page Title -->
+    <title>Contact Us - Happy Tails 🐾</title>
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+
+<body>
+    <!-- Skip to Main Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- ========================================
+         NAVIGATION BAR
+         ======================================== -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo -->
+            <div class="navbar-logo">
+                <img src="assets/images/logo.png" alt="Happy Tails Logo">
+                <span>Happy Tails</span>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <ul class="navbar-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="available-puppies.html">Puppies</a></li>
+                <li><a href="rescue-stories.html">Rescue Stories</a></li>
+                <li><a href="submit-stray.html">Submit Stray</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         MAIN CONTENT
+         ======================================== -->
+    <main id="main-content">
+        
+        <!-- ========================================
+             PAGE HEADER
+             ======================================== -->
+        <section class="section" style="background: linear-gradient(135deg, var(--light-purple) 0%, var(--bg-cream) 100%); padding: 3rem 0;">
+            <div class="container text-center">
+                <h1>📧 Get In Touch With Us</h1>
+                <p style="font-size: 1.125rem; color: var(--text-light); max-width: 800px; margin: 0 auto;">
+                    Have questions about adoption, volunteering, or how you can help? 
+                    We'd love to hear from you! Fill out the form below and we'll get back to you soon.
+                </p>
+            </div>
+        </section>
+
+        <!-- ========================================
+             CONTACT FORM SECTION
+             ======================================== -->
+        <section class="form-section">
+            <div class="container">
+                
+                <!-- Form Container -->
+                <div class="form-container">
+                    <h2 style="text-align: center; margin-bottom: var(--spacing-md);">Send Us a Message</h2>
+                    
+                    <!-- Form Starts Here -->
+                    <form id="contact-form" action="#" method="post">
+                        
+                        <!-- Name -->
+                        <div class="form-group">
+                            <label for="name">
+                                Your Name <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                placeholder="Enter your full name" 
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                placeholder="your.email@example.com" 
+                                required
+                            >
+                        </div>
+                        
+                        <!-- Phone (Optional) -->
+                        <div class="form-group">
+                            <label for="phone">
+                                Phone Number (Optional)
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                placeholder="e.g., +92 (333) 123-4567"
+                            >
+                        </div>
+                        
+                        <!-- Subject -->
+                        <div class="form-group">
+                            <label for="subject">
+                                Subject <span class="required">*</span>
+                            </label>
+                            <select id="subject" name="subject" required>
+                                <option value="">-- Select a Subject --</option>
+                                <option value="adoption">Adoption Inquiry</option>
+                                <option value="volunteer">Volunteer Opportunities</option>
+                                <option value="donation">Donation Information</option>
+                                <option value="partnership">Partnership/Collaboration</option>
+                                <option value="feedback">Feedback or Suggestions</option>
+                                <option value="general">General Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label for="message">
+                                Your Message <span class="required">*</span>
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                placeholder="Tell us what's on your mind..." 
+                                required
+                            ></textarea>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary form-submit">
+                            Send Message ✉️
+                        </button>
+                        
+                        <p style="text-align: center; margin-top: var(--spacing-sm); color: var(--text-light); font-size: 0.9rem;">
+                            <span class="required">*</span> Required fields
+                        </p>
+                        
+                    </form>
+                    
+                </div>
+                
+                <!-- Contact Information Box -->
+                <div class="contact-info">
+                    <h3>Other Ways to Reach Us</h3>
+                    <p><strong>📍 Address:</strong><br>123 Puppy Love Lane, Rahim Yar Khan City, Pakistan</p>
+                    <p><strong>📞 Phone:</strong><br>+92 (333) 123-4567</p>
+                    <p><strong>📧 Email:</strong><br>info@happytails.org</p>
+                    <p><strong>🕒 Office Hours:</strong><br>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                    <p style="margin-top: var(--spacing-sm); font-weight: 500;">
+                        💡 <strong>For emergencies:</strong> Call our 24/7 hotline at +92 (333) 911-7297
+                    </p>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- ========================================
+             FAQ SECTION
+             ======================================== -->
+        <section class="section" style="background-color: var(--white);">
+            <div class="container">
+                <h2 class="text-center">Frequently Asked Questions</h2>
+                <div style="max-width: 800px; margin: var(--spacing-md) auto;">
+                    
+                    <!-- FAQ 1 -->
+                    <div style="margin-bottom: var(--spacing-md); padding: var(--spacing-md); background-color: var(--bg-cream); border-radius: var(--radius-md); border-left: 4px solid var(--primary-orange);">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 0.5rem;">How long does the adoption process take?</h3>
+                        <p style="color: var(--text-light); margin: 0;">
+                            The adoption process typically takes 3-5 business days. This includes the application review, 
+                            home visit (if applicable), and final approval. We want to ensure every match is perfect!
+                        </p>
+                    </div>
+                    
+                    <!-- FAQ 2 -->
+                    <div style="margin-bottom: var(--spacing-md); padding: var(--spacing-md); background-color: var(--bg-cream); border-radius: var(--radius-md); border-left: 4px solid var(--secondary-lavender);">
+                        <h3 style="color: var(--secondary-lavender); margin-bottom: 0.5rem;">Do you charge an adoption fee?</h3>
+                        <p style="color: var(--text-light); margin: 0;">
+                            Yes, we have a modest adoption fee that covers vaccinations, spaying/neutering, microchipping, 
+                            and initial medical care. The fee varies depending on the age and medical needs of the puppy. 
+                            Contact us for specific pricing.
+                        </p>
+                    </div>
+                    
+                    <!-- FAQ 3 -->
+                    <div style="margin-bottom: var(--spacing-md); padding: var(--spacing-md); background-color: var(--bg-cream); border-radius: var(--radius-md); border-left: 4px solid var(--primary-orange);">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 0.5rem;">Can I volunteer at Happy Tails?</h3>
+                        <p style="color: var(--text-light); margin: 0;">
+                            Absolutely! We always welcome volunteers. Whether you can walk dogs, help with events, 
+                            foster puppies, or assist with administrative tasks, there's a role for you! 
+                            Fill out the contact form above with "Volunteer Opportunities" as the subject.
+                        </p>
+                    </div>
+                    
+                    <!-- FAQ 4 -->
+                    <div style="margin-bottom: var(--spacing-md); padding: var(--spacing-md); background-color: var(--bg-cream); border-radius: var(--radius-md); border-left: 4px solid var(--secondary-lavender);">
+                        <h3 style="color: var(--secondary-lavender); margin-bottom: 0.5rem;">What if I can't adopt but want to help?</h3>
+                        <p style="color: var(--text-light); margin: 0;">
+                            There are many ways to support Happy Tails! You can donate supplies, sponsor a puppy's 
+                            medical care, volunteer your time, foster temporarily, or simply spread the word about 
+                            our mission. Every little bit helps! 🐾❤️
+                        </p>
+                    </div>
+                    
+                    <!-- FAQ 5 -->
+                    <div style="padding: var(--spacing-md); background-color: var(--bg-cream); border-radius: var(--radius-md); border-left: 4px solid var(--primary-orange);">
+                        <h3 style="color: var(--primary-orange); margin-bottom: 0.5rem;">Do you provide post-adoption support?</h3>
+                        <p style="color: var(--text-light); margin: 0;">
+                            Yes! We're here for you even after adoption. We provide guidance on training, behavior, 
+                            health concerns, and general care. Our relationship doesn't end when you take your puppy 
+                            home – we're partners in their journey! 🐶✨
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             CALL TO ACTION SECTION
+             ======================================== -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Make a Difference?</h2>
+                <p>Join our mission to give every puppy a second chance at life!</p>
+                <div class="cta-buttons">
+                    <a href="available-puppies.html" class="btn btn-white">Browse Puppies</a>
+                    <a href="submit-stray.html" class="btn btn-white">Report a Stray</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Happy Tails</div>
+                <p class="footer-tagline">From Streets to Smiles 🐾</p>
+                
+                <!-- Footer Navigation Links -->
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="available-puppies.html">Adopt</a></li>
+                    <li><a href="rescue-stories.html">Stories</a></li>
+                    <li><a href="submit-stray.html">Report</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <!-- Social Media Icons -->
+                <div class="footer-social">
+                    <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2025 Happy Tails. All Rights Reserved. Made with ❤️ for puppies everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         EXTERNAL JAVASCRIPT
+         ======================================== -->
+    <script src="assets/js/script.js"></script>
+    
+</body>
+</html>
+

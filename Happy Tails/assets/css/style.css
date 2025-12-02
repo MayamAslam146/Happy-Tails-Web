@@ -1,0 +1,1126 @@
+/* ========================================
+   HAPPY TAILS - PUPPY ADOPTION WEBSITE
+   Main Stylesheet
+   ======================================== */
+
+/* ========================================
+   CSS RESET & BASE STYLES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+/* ========================================
+   CSS CUSTOM PROPERTIES (COLOR PALETTE)
+   ======================================== */
+
+:root {
+    /* Background Colors */
+    --bg-cream: #FFF9F3;
+    --white: #FFFFFF;
+    
+    /* Brand Colors */
+    --primary-orange: #F49B42;
+    --secondary-lavender: #CBA4E5;
+    --light-purple: #E8D5F2;
+    
+    /* Text Colors */
+    --text-brown: #5A3E2B;
+    --text-light: #8B7355;
+    
+    /* Effects */
+    --gradient-peach: linear-gradient(135deg, #F49B42, #FEC89A);
+    --shadow: rgba(90, 62, 43, 0.1);
+    --shadow-hover: rgba(90, 62, 43, 0.2);
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    /* Border Radius */
+    --radius-sm: 10px;
+    --radius-md: 20px;
+    --radius-lg: 30px;
+    --radius-full: 50%;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-cream);
+    color: var(--text-brown);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-brown);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   REUSABLE UTILITY CLASSES
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section {
+    padding: var(--spacing-lg) 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-1 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.mb-2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.mt-2 {
+    margin-top: var(--spacing-md);
+}
+
+/* ========================================
+   BUTTON STYLES
+   ======================================== */
+
+.btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Primary Button - Orange Gradient */
+.btn-primary {
+    background: var(--gradient-peach);
+    color: var(--white);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-hover);
+}
+
+/* Secondary Button - Lavender */
+.btn-secondary {
+    background-color: var(--secondary-lavender);
+    color: var(--white);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.btn-secondary:hover {
+    background-color: var(--light-purple);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-hover);
+}
+
+/* Outline Button */
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-orange);
+    color: var(--primary-orange);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-orange);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   HEADER & NAVIGATION BAR
+   ======================================== */
+
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 20px var(--shadow-hover);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem var(--spacing-md);
+}
+
+/* Logo Styling */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar-logo img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar-logo span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-orange);
+}
+
+/* Navigation Links */
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.navbar-menu li a {
+    font-weight: 500;
+    color: var(--text-brown);
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.navbar-menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-peach);
+    transition: width 0.3s ease;
+}
+
+.navbar-menu li a:hover::after,
+.navbar-menu li a.active::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle (Hidden on Desktop) */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.navbar-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-brown);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* ========================================
+   HERO SECTION (HOME PAGE)
+   ======================================== */
+
+.hero {
+    /* Puppy background image */
+    background-image: 
+        linear-gradient(rgba(232, 213, 242, 0.3), rgba(255, 249, 243, 0.4)),
+        url('../../images/Images/Happy puppy.jpeg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 8rem 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+/* Optional overlay for better text readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(232, 213, 242, 0.4) 0%, rgba(255, 249, 243, 0.5) 100%);
+    pointer-events: none;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--text-brown);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+.hero .tagline {
+    font-size: 1.5rem;
+    color: var(--text-brown);
+    margin-bottom: var(--spacing-md);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ========================================
+   ABOUT SECTION
+   ======================================== */
+
+.about {
+    background-color: var(--white);
+    padding: var(--spacing-lg) 0;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about h2 {
+    color: var(--primary-orange);
+    margin-bottom: var(--spacing-md);
+}
+
+.about p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ========================================
+   STATS SECTION (Quick Numbers)
+   ======================================== */
+
+.stats {
+    padding: var(--spacing-lg) 0;
+    background: linear-gradient(135deg, var(--bg-cream) 0%, var(--light-purple) 100%);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.stat-card {
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-hover);
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    color: var(--primary-orange);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    color: var(--text-brown);
+    font-weight: 500;
+}
+
+/* ========================================
+   PUPPY CARDS (Grid Layout)
+   ======================================== */
+
+.puppies-section {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--white);
+}
+
+.puppies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.puppy-card {
+    background-color: var(--bg-cream);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.puppy-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px var(--shadow-hover);
+}
+
+.puppy-card-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.puppy-card:hover .puppy-card-image {
+    transform: scale(1.05);
+}
+
+.puppy-card-content {
+    padding: var(--spacing-md);
+}
+
+.puppy-card-content h3 {
+    color: var(--primary-orange);
+    margin-bottom: var(--spacing-xs);
+}
+
+.puppy-info {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.puppy-info span {
+    background-color: var(--light-purple);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+}
+
+.puppy-card-content p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+.puppy-card-content .btn {
+    width: 100%;
+}
+
+/* ========================================
+   RESCUE STORIES (Before/After Cards)
+   ======================================== */
+
+.rescue-stories-section {
+    padding: var(--spacing-lg) 0;
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.story-card {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-hover);
+}
+
+.story-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.story-image-wrapper {
+    position: relative;
+    height: 250px;
+}
+
+.story-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: var(--primary-orange);
+    color: var(--white);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.story-content {
+    padding: var(--spacing-md);
+}
+
+.story-content h3 {
+    color: var(--primary-orange);
+    margin-bottom: var(--spacing-xs);
+}
+
+.story-date {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ========================================
+   FORMS (Contact & Submit Stray)
+   ======================================== */
+
+.form-section {
+    padding: var(--spacing-lg) 0;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--text-brown);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid var(--light-purple);
+    border-radius: var(--radius-sm);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--bg-cream);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 3px rgba(244, 155, 66, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group .required {
+    color: var(--primary-orange);
+}
+
+.form-submit {
+    width: 100%;
+}
+
+/* Contact Info Box */
+.contact-info {
+    max-width: 600px;
+    margin: var(--spacing-md) auto 0;
+    background: linear-gradient(135deg, var(--light-purple), var(--secondary-lavender));
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+    color: var(--text-brown);
+}
+
+.contact-info h3 {
+    color: var(--white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-info p {
+    color: var(--white);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ========================================
+   CALL TO ACTION SECTION
+   ======================================== */
+
+.cta-section {
+    background: var(--gradient-peach);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+    color: var(--white);
+}
+
+.cta-section h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.cta-section p {
+    color: var(--white);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--primary-orange);
+}
+
+.btn-white:hover {
+    background-color: var(--bg-cream);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background-color: var(--text-brown);
+    color: var(--bg-cream);
+    padding: var(--spacing-md) 0;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-orange);
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-tagline {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--bg-cream);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    list-style: none;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links a {
+    color: var(--bg-cream);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-orange);
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-orange);
+    border-radius: var(--radius-full);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--secondary-lavender);
+    transform: translateY(-3px);
+}
+
+.footer-copyright {
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255, 249, 243, 0.2);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   SCROLL TO TOP BUTTON
+   ======================================== */
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-peach);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-full);
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--shadow);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px var(--shadow-hover);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet Devices (768px - 1024px) */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+/* Mobile Devices (< 768px) */
+@media (max-width: 768px) {
+    /* Typography adjustments */
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero .tagline {
+        font-size: 1.125rem;
+    }
+    
+    /* Navigation - Mobile Menu */
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        padding: var(--spacing-sm);
+        box-shadow: 0 4px 10px var(--shadow);
+        gap: 0;
+    }
+    
+    .navbar-menu.active {
+        display: flex;
+    }
+    
+    .navbar-menu li {
+        width: 100%;
+        text-align: center;
+        padding: var(--spacing-sm) 0;
+        border-bottom: 1px solid var(--light-purple);
+    }
+    
+    .navbar-toggle {
+        display: flex;
+    }
+    
+    /* Hero section - mobile adjustments */
+    .hero {
+        min-height: 500px;
+        padding: 4rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero .tagline {
+        font-size: 1.125rem;
+    }
+    
+    /* Grids to single column */
+    .stats-grid,
+    .puppies-grid,
+    .stories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Button adjustments */
+    .hero-buttons,
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Footer links */
+    .footer-links {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    /* Story images stacked */
+    .story-images {
+        grid-template-columns: 1fr;
+    }
+    
+    .story-image-wrapper {
+        height: 200px;
+    }
+    
+    /* Spacing adjustments */
+    .section {
+        padding: var(--spacing-md) 0;
+    }
+    
+    :root {
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
+    }
+}
+
+/* Small Mobile Devices (< 480px) */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 400px;
+        padding: 3rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero .tagline {
+        font-size: 1rem;
+    }
+    
+    .puppies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .puppy-card-image {
+        height: 250px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS & EFFECTS
+   ======================================== */
+
+/* Fade In Animation (for JavaScript) */
+.fade-in {
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse Animation for CTA buttons */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.btn-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+/* Skip to main content link (for screen readers) */
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-orange);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-to-main:focus {
+    top: 0;
+}
+
+/* ========================================
+   ADOPTION FORM PAGE STYLES
+   ======================================== */
+
+/* Adoption Form Section */
+.adoption-form-section {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--bg-cream);
+}
+
+/* Two-Column Layout: Form + Puppy Preview */
+.adoption-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+/* Adoption Form Container */
+.adoption-form-container {
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+/* Checkbox Group Styling */
+.checkbox-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-brown);
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-top: 0.25rem;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-orange);
+}
+
+.checkbox-label span {
+    flex: 1;
+}
+
+/* Puppy Preview Column */
+.adoption-puppy-preview {
+    position: sticky;
+    top: 100px;
+}
+
+/* Adoption Info Box */
+.adoption-info-box {
+    background: linear-gradient(135deg, var(--light-purple), var(--bg-cream));
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-top: var(--spacing-md);
+    box-shadow: 0 2px 10px var(--shadow);
+}
+
+.adoption-info-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.adoption-info-box li {
+    padding: 0.25rem 0;
+}
+
+/* Tip Cards */
+.tip-card {
+    background-color: var(--bg-cream);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-orange);
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px var(--shadow);
+}
+
+/* Responsive Design for Adoption Page */
+
+/* Tablet and Mobile (< 1024px) */
+@media (max-width: 1024px) {
+    .adoption-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .adoption-puppy-preview {
+        position: static;
+        margin-top: var(--spacing-md);
+    }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+    .adoption-form-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .tip-card {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* ========================================
+   END OF STYLESHEET
+   ======================================== */
+
