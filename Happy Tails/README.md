@@ -44,6 +44,7 @@ A beautiful, responsive frontend website for a puppy adoption and rescue organiz
 - **Puppy Cards**: Showcase adoptable puppies with images, descriptions, and "Adopt Me" buttons
 - **Before & After Stories**: Inspiring rescue transformations
 - **Interactive Forms**: Contact and stray reporting forms with validation
+- **User Authentication Pages**: Sign in and sign up forms with social login options
 - **Scroll to Top Button**: Appears when scrolling down for easy navigation
 - **Mobile Menu**: Collapsible navigation for smaller screens
 
@@ -59,6 +60,9 @@ Happy Tails/
 ├── rescue-stories.html           # Before & After rescue stories
 ├── submit-stray.html             # Report/hand over stray puppy form
 ├── contact.html                  # Contact form and information
+├── signin.html                   # User sign in / login page
+├── signup.html                   # User registration / sign up page
+├── adopt-puppy.html              # Individual puppy adoption form
 │
 ├── assets/
 │   ├── css/
@@ -183,6 +187,24 @@ Then open: `http://localhost:8000`
 - Frequently Asked Questions (FAQ)
 - Call-to-action buttons
 
+### 6. **Sign In** (`signin.html`) 🆕
+- User authentication login form
+- Email and password fields
+- "Remember me" checkbox
+- "Forgot password?" recovery link
+- Social sign-in options (Google, Facebook)
+- Benefits sidebar highlighting account features
+- Link to sign up page for new users
+
+### 7. **Sign Up** (`signup.html`) 🆕
+- User registration form with validation
+- Fields: Full name, email, phone, password, confirm password
+- Terms & Conditions acceptance checkbox
+- Newsletter subscription option
+- Social sign-up options (Google, Facebook)
+- Community stats and member benefits
+- Link to sign in page for existing users
+
 ---
 
 ## 🔧 JavaScript Features
@@ -196,11 +218,13 @@ The `assets/js/script.js` file includes:
 5. **Form Validation**:
    - Checks required fields
    - Validates email format
+   - Password strength validation (Sign Up)
    - Displays helpful error messages
    - Shows success confirmation
 6. **Adopt Me Button**: Interactive confirmation dialog
 7. **Smooth Scrolling**: For anchor links
 8. **Fade-in Animations**: Elements animate on scroll (optional)
+9. **Authentication Forms**: Ready for backend integration
 
 All functions are well-commented for learning purposes!
 
@@ -215,6 +239,7 @@ The `assets/css/style.css` includes:
 - **Responsive Grid Layouts**: Auto-fit columns for various screen sizes
 - **Card Hover Effects**: Smooth lift and shadow transitions
 - **Button Gradients**: Eye-catching call-to-action buttons
+- **Authentication Styling**: Beautiful sign in/sign up forms with social login buttons
 - **Mobile-First Design**: Optimized for all devices
 - **Accessibility Features**: Focus states, skip links, semantic markup
 - **Detailed Comments**: Each section thoroughly explained
@@ -240,20 +265,24 @@ This is currently a **frontend-only** project. Future improvements could include
 
 ### Backend Development
 - [ ] Database integration (MySQL/PostgreSQL)
-- [ ] User authentication system
+- [x] User authentication pages (Sign In / Sign Up) - **Frontend Complete**
+- [ ] Backend authentication system (JWT, sessions, OAuth integration)
+- [ ] Password reset and email verification functionality
 - [ ] Admin dashboard for managing puppies
 - [ ] Email notification system
 - [ ] Adoption application processing
+- [ ] User profile management and dashboard
 
 ### Additional Features
 - [ ] Search and filter functionality for puppies
 - [ ] Image upload for stray reports
 - [ ] Donation payment integration
-- [ ] User accounts for tracking adoption status
+- [ ] User accounts for tracking adoption status (save favorites, track applications)
 - [ ] Blog section for rescue updates
 - [ ] Volunteer scheduling system
 - [ ] Multi-language support
 - [ ] Dark mode toggle
+- [ ] Social media integration for sharing puppies
 
 ### Optimization
 - [ ] Image lazy loading

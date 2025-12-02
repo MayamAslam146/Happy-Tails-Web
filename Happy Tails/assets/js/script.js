@@ -152,6 +152,31 @@ function initFormValidation() {
                 }
             }
             
+            // Special validation for sign-up form (password matching)
+            const formId = form.id || '';
+            if (formId.includes('signup') || formId.includes('sign-up')) {
+                const password = form.querySelector('input[name="password"]');
+                const confirmPassword = form.querySelector('input[name="confirm-password"]');
+                
+                if (password && confirmPassword) {
+                    if (password.value !== confirmPassword.value) {
+                        isValid = false;
+                        password.style.borderColor = '#ff4444';
+                        confirmPassword.style.borderColor = '#ff4444';
+                        alert('⚠️ Passwords do not match. Please make sure both passwords are the same.');
+                        return;
+                    }
+                    
+                    // Check password strength
+                    if (password.value.length < 8) {
+                        isValid = false;
+                        password.style.borderColor = '#ff4444';
+                        alert('⚠️ Password must be at least 8 characters long.');
+                        return;
+                    }
+                }
+            }
+            
             // If validation fails, show error message
             if (!isValid) {
                 alert('⚠️ Please fill in all required fields:\n\n' + emptyFields.join('\n'));
@@ -172,8 +197,15 @@ function showSuccessMessage(form) {
     // Determine which form was submitted
     const formId = form.id || 'form';
     let message = '';
+    let redirectToHome = false;
     
-    if (formId.includes('contact') || form.action.includes('contact')) {
+    if (formId.includes('signin') || formId.includes('sign-in')) {
+        message = '✅ Welcome back to Happy Tails!\n\nSigning you in... 🐾';
+        redirectToHome = true;
+    } else if (formId.includes('signup') || formId.includes('sign-up')) {
+        message = '✅ Account created successfully!\n\nWelcome to the Happy Tails family! 🐶❤️';
+        redirectToHome = true;
+    } else if (formId.includes('contact') || form.action.includes('contact')) {
         message = '✅ Thank you for contacting us!\n\nWe\'ll get back to you within 24 hours. 🐾';
     } else if (formId.includes('stray') || form.action.includes('stray')) {
         message = '✅ Thank you for reporting!\n\nOur rescue team will investigate this case immediately. Every report helps save a life! 🐶❤️';
@@ -184,6 +216,14 @@ function showSuccessMessage(form) {
     }
     
     alert(message);
+    
+    // Redirect to home page for sign-in/sign-up forms
+    if (redirectToHome) {
+        setTimeout(function() {
+            window.location.href = 'index.html';
+        }, 500);
+        return; // Don't reset form or styling if redirecting
+    }
     
     // Reset the form after successful submission
     form.reset();
