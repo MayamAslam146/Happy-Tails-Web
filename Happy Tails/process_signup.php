@@ -82,13 +82,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // If there are errors, redirect back with errors
     if (!empty($errors)) {
-        $_SESSION['signup_errors'] = $errors;
-        $_SESSION['signup_data'] = $_POST;
-        redirect('signup.html');
+        $_SESSION['error_message'] = implode('. ', $errors);
+        redirect('signup.php');
     }
     
 } else {
-    redirect('signup.html');
+    redirect('signup.php');
 }
 
 $conn->close();

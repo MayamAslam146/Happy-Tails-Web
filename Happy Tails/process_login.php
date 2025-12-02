@@ -53,20 +53,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $errors[] = "Invalid email or password";
             }
         } else {
-            $errors[] = "Invalid email or password";
+            $errors[] = "Invalid email or password. Don't have an account? Please sign up first!";
         }
         $stmt->close();
     }
     
-    // If there are errors, redirect back
+    // If there are errors, redirect back with message
     if (!empty($errors)) {
-        $_SESSION['login_errors'] = $errors;
+        $_SESSION['error_message'] = implode(' ', $errors);
         $_SESSION['login_email'] = $email;
-        redirect('signin.html');
+        redirect('signin.php');
     }
     
 } else {
-    redirect('signin.html');
+    redirect('signin.php');
 }
 
 $conn->close();

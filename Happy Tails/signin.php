@@ -1,0 +1,184 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to your Happy Tails account to manage your adoptions and stay connected with your furry friends.">
+    <meta name="keywords" content="sign in, login, happy tails account, puppy adoption login">
+    <meta name="author" content="Happy Tails">
+    
+    <!-- Page Title -->
+    <title>Sign In - Happy Tails 🐾</title>
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+
+<body>
+    <!-- Skip to Main Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- ========================================
+         NAVIGATION BAR
+         ======================================== -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo -->
+            <div class="navbar-logo">
+                <img src="assets/images/logo.png" alt="Happy Tails Logo">
+                <span>Happy Tails</span>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <ul class="navbar-menu">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="available-puppies.html">Puppies</a></li>
+                <li><a href="rescue-stories.html">Rescue Stories</a></li>
+                <li><a href="submit-stray.html">Submit Stray</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         MAIN CONTENT
+         ======================================== -->
+    <main id="main-content">
+        
+        <!-- ========================================
+             SIGN IN SECTION
+             ======================================== -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-container">
+                    
+                    <!-- Welcome Message -->
+                    <div class="auth-header">
+                        <h1>🐾 Welcome Back!</h1>
+                        <p>Sign in to your Happy Tails account</p>
+                    </div>
+                    
+                    <!-- Error Message -->
+                    <?php if (isset($_SESSION['error_message'])): ?>
+                    <div style="background: linear-gradient(135deg, #ff6b6b, #ff4444); color: white; padding: 1.2rem; border-radius: 15px; margin-bottom: 1.5rem; text-align: center; box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);">
+                        <strong>⚠️ <?php echo htmlspecialchars($_SESSION['error_message']); ?></strong>
+                    </div>
+                    <?php unset($_SESSION['error_message']); endif; ?>
+                    
+                    <!-- Sign In Form -->
+                    <div class="auth-form-wrapper">
+                        <form id="signin-form" class="auth-form" action="process_login.php" method="post">
+                            
+                            <!-- Email Address -->
+                            <div class="form-group">
+                                <label for="email">
+                                    Email Address <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="your.email@example.com" 
+                                    value="<?php echo isset($_SESSION['login_email']) ? htmlspecialchars($_SESSION['login_email']) : ''; ?>"
+                                    required
+                                    autocomplete="email"
+                                >
+                            </div>
+                            
+                            <!-- Password -->
+                            <div class="form-group">
+                                <label for="password">
+                                    Password <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    placeholder="Enter your password" 
+                                    required
+                                    autocomplete="current-password"
+                                >
+                            </div>
+                            
+                            <!-- Remember Me -->
+                            <div class="auth-options">
+                                <label class="remember-me">
+                                    <input type="checkbox" name="remember" id="remember">
+                                    <span>Remember me</span>
+                                </label>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary form-submit">
+                                Sign In 🐶
+                            </button>
+                            
+                        </form>
+                        
+                        <!-- Sign Up Link -->
+                        <div class="auth-footer">
+                            <p>Don't have an account? <a href="signup.php" class="auth-link">Sign Up Now</a></p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Happy Tails</div>
+                <p class="footer-tagline">From Streets to Smiles 🐾</p>
+                
+                <!-- Footer Navigation Links -->
+                <ul class="footer-links">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="available-puppies.html">Adopt</a></li>
+                    <li><a href="rescue-stories.html">Stories</a></li>
+                    <li><a href="submit-stray.html">Report</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <!-- Social Media Icons -->
+                <div class="footer-social">
+                    <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2025 Happy Tails. All Rights Reserved. Made with ❤️ for puppies everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         EXTERNAL JAVASCRIPT
+         ======================================== -->
+    <script src="assets/js/script.js"></script>
+    <?php unset($_SESSION['login_email']); ?>
+    
+</body>
+</html>
+

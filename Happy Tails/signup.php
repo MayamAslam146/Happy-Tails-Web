@@ -1,0 +1,238 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your Happy Tails account to start your puppy adoption journey and join our loving community.">
+    <meta name="keywords" content="sign up, register, create account, happy tails, puppy adoption">
+    <meta name="author" content="Happy Tails">
+    
+    <!-- Page Title -->
+    <title>Sign Up - Happy Tails 🐾</title>
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+</head>
+
+<body>
+    <!-- Skip to Main Content (Accessibility) -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- ========================================
+         NAVIGATION BAR
+         ======================================== -->
+    <nav class="navbar">
+        <div class="container">
+            <!-- Logo -->
+            <div class="navbar-logo">
+                <img src="assets/images/logo.png" alt="Happy Tails Logo">
+                <span>Happy Tails</span>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <ul class="navbar-menu">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="available-puppies.html">Puppies</a></li>
+                <li><a href="rescue-stories.html">Rescue Stories</a></li>
+                <li><a href="submit-stray.html">Submit Stray</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle Button -->
+            <div class="navbar-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         MAIN CONTENT
+         ======================================== -->
+    <main id="main-content">
+        
+        <!-- ========================================
+             SIGN UP SECTION
+             ======================================== -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-container">
+                    
+                    <!-- Welcome Message -->
+                    <div class="auth-header">
+                        <h1>🐾 Join Happy Tails!</h1>
+                        <p>Create your account and start making a difference</p>
+                    </div>
+                    
+                    <!-- Error Message -->
+                    <?php if (isset($_SESSION['error_message'])): ?>
+                    <div style="background: linear-gradient(135deg, #ff6b6b, #ff4444); color: white; padding: 1.2rem; border-radius: 15px; margin-bottom: 1.5rem; text-align: center; box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);">
+                        <strong>⚠️ <?php echo htmlspecialchars($_SESSION['error_message']); ?></strong>
+                    </div>
+                    <?php unset($_SESSION['error_message']); endif; ?>
+                    
+                    <!-- Sign Up Form -->
+                    <div class="auth-form-wrapper">
+                        <form id="signup-form" class="auth-form" action="process_signup.php" method="post">
+                            
+                            <!-- Full Name -->
+                            <div class="form-group">
+                                <label for="fullname">
+                                    Full Name <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="fullname" 
+                                    name="fullname" 
+                                    placeholder="Enter your full name" 
+                                    required
+                                    autocomplete="name"
+                                >
+                            </div>
+                            
+                            <!-- Email Address -->
+                            <div class="form-group">
+                                <label for="email">
+                                    Email Address <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="your.email@example.com" 
+                                    required
+                                    autocomplete="email"
+                                >
+                            </div>
+                            
+                            <!-- Phone Number -->
+                            <div class="form-group">
+                                <label for="phone">
+                                    Phone Number <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    placeholder="+92 (333) 123-4567" 
+                                    required
+                                    autocomplete="tel"
+                                >
+                            </div>
+                            
+                            <!-- Password -->
+                            <div class="form-group">
+                                <label for="password">
+                                    Password <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    placeholder="Create a strong password" 
+                                    required
+                                    autocomplete="new-password"
+                                >
+                                <small style="color: var(--text-light); font-size: 0.875rem;">
+                                    Must be at least 8 characters with letters and numbers
+                                </small>
+                            </div>
+                            
+                            <!-- Confirm Password -->
+                            <div class="form-group">
+                                <label for="confirm-password">
+                                    Confirm Password <span class="required">*</span>
+                                </label>
+                                <input 
+                                    type="password" 
+                                    id="confirm-password" 
+                                    name="confirm-password" 
+                                    placeholder="Re-enter your password" 
+                                    required
+                                    autocomplete="new-password"
+                                >
+                            </div>
+                            
+                            <!-- Terms & Conditions -->
+                            <div class="auth-checkbox">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="terms" id="terms" required>
+                                    <span>I agree to the <a href="#" class="auth-link">Terms & Conditions</a> and <a href="#" class="auth-link">Privacy Policy</a></span>
+                                </label>
+                            </div>
+                            
+                            <!-- Newsletter Subscription -->
+                            <div class="auth-checkbox">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="newsletter" id="newsletter" checked>
+                                    <span>Send me updates about new puppies and Happy Tails news</span>
+                                </label>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary form-submit">
+                                Create Account 🐶
+                            </button>
+                            
+                        </form>
+                        
+                        <!-- Sign In Link -->
+                        <div class="auth-footer">
+                            <p>Already have an account? <a href="signin.php" class="auth-link">Sign In</a></p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Happy Tails</div>
+                <p class="footer-tagline">From Streets to Smiles 🐾</p>
+                
+                <!-- Footer Navigation Links -->
+                <ul class="footer-links">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="available-puppies.html">Adopt</a></li>
+                    <li><a href="rescue-stories.html">Stories</a></li>
+                    <li><a href="submit-stray.html">Report</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <!-- Social Media Icons -->
+                <div class="footer-social">
+                    <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                    <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-copyright">
+                <p>&copy; 2025 Happy Tails. All Rights Reserved. Made with ❤️ for puppies everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         EXTERNAL JAVASCRIPT
+         ======================================== -->
+    <script src="assets/js/script.js"></script>
+    
+</body>
+</html>
+

@@ -46,7 +46,7 @@ session_start();
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li><a href="logout.php" style="color: var(--secondary-lavender);">Logout (<?php echo htmlspecialchars($_SESSION['user_name']); ?>)</a></li>
                 <?php else: ?>
-                    <li><a href="signin.html" style="color: var(--primary-orange);">Sign In</a></li>
+                    <li><a href="signin.php" style="color: var(--primary-orange);">Sign In</a></li>
                 <?php endif; ?>
             </ul>
             
@@ -61,8 +61,8 @@ session_start();
 
     <!-- Display Success Message -->
     <?php if (isset($_SESSION['success_message'])): ?>
-    <div style="background: linear-gradient(135deg, var(--primary-orange), var(--secondary-lavender)); color: white; padding: 1rem; text-align: center; font-weight: 500;">
-        ✅ <?php echo htmlspecialchars($_SESSION['success_message']); ?>
+    <div style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white; padding: 1.5rem; text-align: center; font-weight: 500; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);">
+        <strong style="font-size: 1.1rem;">✅ <?php echo htmlspecialchars($_SESSION['success_message']); ?></strong>
     </div>
     <?php unset($_SESSION['success_message']); endif; ?>
 

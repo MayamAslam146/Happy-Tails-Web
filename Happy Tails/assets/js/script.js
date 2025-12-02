@@ -119,7 +119,50 @@ function initFormValidation() {
     
     forms.forEach(form => {
         form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent default form submission
+            const formId = form.id || '';
+            
+            // For signin/signup forms, do basic validation but let PHP handle everything
+            if (formId.includes('signin') || formId.includes('sign-in') || 
+                formId.includes('signup') || formId.includes('sign-up')) {
+                
+                // Only check if fields are filled
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    field.style.borderColor = '';
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#ff4444';
+                    }
+                });
+                
+                if (!isValid) {
+                    e.preventDefault();
+                    alert('⚠️ Please fill in all required fields.');
+                    return;
+                }
+                
+                // Password matching for signup
+                if (formId.includes('signup') || formId.includes('sign-up')) {
+                    const password = form.querySelector('input[name="password"]');
+                    const confirmPassword = form.querySelector('input[name="confirm-password"]');
+                    
+                    if (password && confirmPassword && password.value !== confirmPassword.value) {
+                        e.preventDefault();
+                        password.style.borderColor = '#ff4444';
+                        confirmPassword.style.borderColor = '#ff4444';
+                        alert('⚠️ Passwords do not match.');
+                        return;
+                    }
+                }
+                
+                // Let form submit naturally to PHP - no preventDefault, no alert
+                return;
+            }
+            
+            // For all other forms, prevent default and validate
+            e.preventDefault();
             
             // Get all required fields in this form
             const requiredFields = form.querySelectorAll('[required]');
@@ -152,46 +195,13 @@ function initFormValidation() {
                 }
             }
             
-            // Special validation for sign-up form (password matching)
-            const formId = form.id || '';
-            if (formId.includes('signup') || formId.includes('sign-up')) {
-                const password = form.querySelector('input[name="password"]');
-                const confirmPassword = form.querySelector('input[name="confirm-password"]');
-                
-                if (password && confirmPassword) {
-                    if (password.value !== confirmPassword.value) {
-                        isValid = false;
-                        password.style.borderColor = '#ff4444';
-                        confirmPassword.style.borderColor = '#ff4444';
-                        alert('⚠️ Passwords do not match. Please make sure both passwords are the same.');
-                        return;
-                    }
-                    
-                    // Check password strength
-                    if (password.value.length < 8) {
-                        isValid = false;
-                        password.style.borderColor = '#ff4444';
-                        alert('⚠️ Password must be at least 8 characters long.');
-                        return;
-                    }
-                }
-            }
-            
             // If validation fails, show error message
             if (!isValid) {
                 alert('⚠️ Please fill in all required fields:\n\n' + emptyFields.join('\n'));
                 return;
             }
             
-            // For signin/signup forms, submit to PHP without showing alert
-            if (formId.includes('signin') || formId.includes('sign-in') || 
-                formId.includes('signup') || formId.includes('sign-up')) {
-                // Remove the event listener and submit the form naturally
-                form.submit();
-                return;
-            }
-            
-            // If validation passes, show success message for other forms
+            // If validation passes, show success message
             showSuccessMessage(form);
         });
     });
