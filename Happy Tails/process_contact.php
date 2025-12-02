@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->execute()) {
             $_SESSION['success_message'] = "Thank you for contacting us! We'll get back to you within 24 hours. 🐾";
             $stmt->close();
-            redirect('contact.html');
+            redirect('contact.php');
         } else {
             $errors[] = "Something went wrong. Please try again.";
         }
@@ -53,13 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // If there are errors
     if (!empty($errors)) {
-        $_SESSION['contact_errors'] = $errors;
-        $_SESSION['contact_data'] = $_POST;
-        redirect('contact.html');
+        $_SESSION['error_message'] = implode('. ', $errors);
+        redirect('contact.php');
     }
     
 } else {
-    redirect('contact.html');
+    redirect('contact.php');
 }
 
 $conn->close();

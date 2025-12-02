@@ -212,45 +212,9 @@ function initFormValidation() {
 // ========================================
 
 function showSuccessMessage(form) {
-    // Determine which form was submitted
-    const formId = form.id || 'form';
-    let message = '';
-    let redirectToHome = false;
-    
-    if (formId.includes('signin') || formId.includes('sign-in')) {
-        // Don't show alert for signin - PHP will handle redirect with message
-        redirectToHome = true;
-    } else if (formId.includes('signup') || formId.includes('sign-up')) {
-        // Don't show alert for signup - PHP will handle redirect with message
-        redirectToHome = true;
-    } else if (formId.includes('contact') || form.action.includes('contact')) {
-        message = '✅ Thank you for contacting us!\n\nWe\'ll get back to you within 24 hours. 🐾';
-    } else if (formId.includes('stray') || form.action.includes('stray')) {
-        message = '✅ Thank you for reporting!\n\nOur rescue team will investigate this case immediately. Every report helps save a life! 🐶❤️';
-    } else if (formId.includes('adopt') || form.action.includes('adopt')) {
-        message = '✅ Adoption request submitted!\n\nWe\'re so excited! Our team will contact you soon to discuss the next steps. 🐾';
-    } else {
-        message = '✅ Form submitted successfully!\n\nThank you for your interest in Happy Tails! 🐾';
-    }
-    
-    // Only show alert for non-auth forms
-    if (message && !redirectToHome) {
-        alert(message);
-    }
-    
-    // For auth forms, form will submit to PHP naturally
-    if (redirectToHome) {
-        return; // Let PHP handle the redirect
-    }
-    
-    // Reset the form after successful submission
-    form.reset();
-    
-    // Reset any error styling
-    const fields = form.querySelectorAll('input, textarea, select');
-    fields.forEach(field => {
-        field.style.borderColor = '';
-    });
+    // ALL forms now handled by PHP - no alerts!
+    // Just let the form submit naturally
+    return;
 }
 
 // ========================================

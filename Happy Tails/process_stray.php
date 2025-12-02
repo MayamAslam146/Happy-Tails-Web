@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->execute()) {
             $_SESSION['success_message'] = "Thank you for reporting! Our rescue team will investigate this case immediately. Every report helps save a life! 🐶❤️";
             $stmt->close();
-            redirect('submit-stray.html');
+            redirect('submit-stray.php');
         } else {
             $errors[] = "Something went wrong. Please try again.";
         }
@@ -59,13 +59,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // If there are errors
     if (!empty($errors)) {
-        $_SESSION['stray_errors'] = $errors;
-        $_SESSION['stray_data'] = $_POST;
-        redirect('submit-stray.html');
+        $_SESSION['error_message'] = implode('. ', $errors);
+        redirect('submit-stray.php');
     }
     
 } else {
-    redirect('submit-stray.html');
+    redirect('submit-stray.php');
 }
 
 $conn->close();

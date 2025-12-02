@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt->execute()) {
             $_SESSION['success_message'] = "Adoption request submitted! We're so excited! Our team will contact you soon to discuss the next steps. 🐾";
             $stmt->close();
-            redirect('adopt-puppy.html');
+            redirect('adopt-puppy.php');
         } else {
             $errors[] = "Something went wrong. Please try again.";
         }
@@ -71,13 +71,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // If there are errors
     if (!empty($errors)) {
-        $_SESSION['adoption_errors'] = $errors;
-        $_SESSION['adoption_data'] = $_POST;
-        redirect('adopt-puppy.html');
+        $_SESSION['error_message'] = implode('. ', $errors);
+        redirect('adopt-puppy.php');
     }
     
 } else {
-    redirect('adopt-puppy.html');
+    redirect('adopt-puppy.php');
 }
 
 $conn->close();
