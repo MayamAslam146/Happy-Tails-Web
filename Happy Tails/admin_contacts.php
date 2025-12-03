@@ -136,7 +136,7 @@ $messages = $conn->query($query);
                                     <?php if ($msg['status'] != 'replied'): ?>
                                     <a href="?update=<?php echo $msg['id']; ?>&status=replied" class="action-btn btn-replied">Mark Replied</a>
                                     <?php endif; ?>
-                                    <a href="?delete=<?php echo $msg['id']; ?>" class="action-btn btn-delete" onclick="return confirm('Delete this message?')">Delete</a>
+                                    <a href="?delete=<?php echo $msg['id']; ?>" class="action-btn btn-delete">Delete</a>
                                 </td>
                             </tr>
                             <?php endwhile; ?>

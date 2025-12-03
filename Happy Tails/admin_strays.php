@@ -144,7 +144,7 @@ $strays = $conn->query($query);
                                     <?php if ($stray['status'] != 'closed'): ?>
                                     <a href="?update=<?php echo $stray['id']; ?>&status=closed" class="action-btn btn-close">Close</a>
                                     <?php endif; ?>
-                                    <a href="?delete=<?php echo $stray['id']; ?>" class="action-btn btn-delete" onclick="return confirm('Delete report?')">Delete</a>
+                                    <a href="?delete=<?php echo $stray['id']; ?>" class="action-btn btn-delete">Delete</a>
                                 </td>
                             </tr>
                             <?php endwhile; ?>

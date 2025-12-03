@@ -142,7 +142,7 @@ $adoptions = $conn->query($query);
                                     <?php if ($adoption['status'] != 'rejected'): ?>
                                     <a href="?update=<?php echo $adoption['id']; ?>&status=rejected" class="action-btn btn-reject">✗ Reject</a>
                                     <?php endif; ?>
-                                    <a href="?delete=<?php echo $adoption['id']; ?>" class="action-btn btn-delete" onclick="return confirm('Delete this request?')">Delete</a>
+                                    <a href="?delete=<?php echo $adoption['id']; ?>" class="action-btn btn-delete">Delete</a>
                                 </td>
                             </tr>
                             <?php endwhile; ?>

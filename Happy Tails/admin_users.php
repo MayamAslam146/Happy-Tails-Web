@@ -150,8 +150,7 @@ $users = $conn->query("SELECT * FROM users ORDER BY created_at DESC");
                             <td>
                                 <?php if ($user['id'] != $_SESSION['user_id']): ?>
                                 <a href="admin_users.php?delete=<?php echo $user['id']; ?>" 
-                                   class="action-btn btn-delete"
-                                   onclick="return confirm('Delete this user?')">Delete</a>
+                                   class="action-btn btn-delete">Delete</a>
                                 <?php else: ?>
                                 <span style="color: var(--text-light);">Current User</span>
                                 <?php endif; ?>
