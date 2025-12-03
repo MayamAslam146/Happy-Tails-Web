@@ -44,6 +44,9 @@ session_start();
                 <li><a href="submit-stray.php">Submit Stray</a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php if (isAdmin()): ?>
+                        <li><a href="admin.php" style="color: var(--primary-orange);">Admin Panel</a></li>
+                    <?php endif; ?>
                     <li><a href="logout.php" style="color: var(--secondary-lavender);">Logout (<?php echo htmlspecialchars($_SESSION['user_name']); ?>)</a></li>
                 <?php else: ?>
                     <li><a href="signin.php" style="color: var(--primary-orange);">Sign In</a></li>

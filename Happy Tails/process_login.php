@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // If no validation errors, check credentials
     if (empty($errors)) {
-        $stmt = $conn->prepare("SELECT id, fullname, email, password FROM users WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id, fullname, email, password, role FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_name'] = $user['fullname'];
                 $_SESSION['user_email'] = $user['email'];
+                $_SESSION['user_role'] = $user['role'] ?? 'user';
                 
                 // Set remember me cookie if checked
                 if ($remember) {
