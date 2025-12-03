@@ -74,7 +74,10 @@
                             Adoption Application Form
                         </h2>
                         
-                        <form id="adoption-form" action="process_adopt.php" method="post">
+                        <form id="adoption-form" action="process_adopt.php" method="post" novalidate>
+                            <!-- Hidden field for puppy name from URL -->
+                            <input type="hidden" id="puppy-name" name="puppy-name" value="<?php echo isset($_GET['name']) ? htmlspecialchars($_GET['name']) : 'Not specified'; ?>">
+                            
                             <div class="form-group">
                                 <label for="full-name">Full Name <span class="required">*</span></label>
                                 <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
@@ -165,12 +168,7 @@
         </div>
     </footer>
 
-    <script>
-        // Disable JavaScript validation - let PHP handle it
-        document.getElementById('adoption-form').addEventListener('submit', function(e) {
-            return true; // Just submit, no alerts
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
     
 </body>
 </html>

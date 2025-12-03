@@ -71,7 +71,7 @@
                 <div class="form-container">
                     <h2 style="text-align: center; margin-bottom: var(--spacing-md);">Send Us a Message</h2>
                     
-                    <form id="contact-form" action="process_contact.php" method="post">
+                    <form id="contact-form" action="process_contact.php" method="post" novalidate>
                         <div class="form-group">
                             <label for="name">Your Name <span class="required">*</span></label>
                             <input type="text" id="name" name="name" placeholder="Enter your full name" required>
@@ -153,13 +153,7 @@
         </div>
     </footer>
 
-    <script>
-        // Disable JavaScript validation for contact form - let PHP handle it
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            // Just submit - no preventDefault, no alerts
-            return true;
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
     
 </body>
 </html>

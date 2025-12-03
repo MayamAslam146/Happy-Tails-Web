@@ -70,10 +70,10 @@
                 <div class="form-container">
                     <h2 style="text-align: center; margin-bottom: var(--spacing-md); color: var(--primary-orange);">Stray Puppy Report Form</h2>
                     
-                    <form id="stray-form" action="process_stray.php" method="post">
+                    <form id="stray-form" action="process_stray.php" method="post" novalidate>
                         <div class="form-group">
-                            <label for="name">Your Name <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                            <label for="reporter-name">Your Name <span class="required">*</span></label>
+                            <input type="text" id="reporter-name" name="reporter-name" placeholder="Enter your name" required>
                         </div>
                         
                         <div class="form-group">
@@ -82,8 +82,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Phone Number <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="+92 (333) 123-4567" required>
+                            <label for="contact-number">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="contact-number" name="contact-number" placeholder="+92 (333) 123-4567" required>
                         </div>
                         
                         <div class="form-group">
@@ -97,8 +97,8 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="description">Additional Details</label>
-                            <textarea id="description" name="description" placeholder="Any other important information..."></textarea>
+                            <label for="message">Additional Details</label>
+                            <textarea id="message" name="message" placeholder="Any other important information..."></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary form-submit">Submit Report 🐾</button>
@@ -137,12 +137,7 @@
         </div>
     </footer>
 
-    <script>
-        // Disable JavaScript validation - let PHP handle it
-        document.getElementById('stray-form').addEventListener('submit', function(e) {
-            return true; // Just submit, no alerts
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
     
 </body>
 </html>

@@ -41,8 +41,8 @@ session_start();
                 <li><a href="index.php">Home</a></li>
                 <li><a href="available-puppies.html">Puppies</a></li>
                 <li><a href="rescue-stories.html">Rescue Stories</a></li>
-                <li><a href="submit-stray.html">Submit Stray</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="submit-stray.php">Submit Stray</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <li><a href="logout.php" style="color: var(--secondary-lavender);">Logout (<?php echo htmlspecialchars($_SESSION['user_name']); ?>)</a></li>
                 <?php else: ?>
@@ -80,7 +80,7 @@ session_start();
                 <p class="tagline">From Streets to Smiles - Every Puppy Deserves a Loving Home</p>
                 <div class="hero-buttons">
                     <a href="available-puppies.html" class="btn btn-primary">Meet Our Puppies</a>
-                    <a href="submit-stray.html" class="btn btn-secondary">Report a Stray</a>
+                    <a href="submit-stray.php" class="btn btn-secondary">Report a Stray</a>
                 </div>
             </div>
         </section>
@@ -164,7 +164,7 @@ session_start();
                                 Max is a playful and energetic pup who loves to run around! 
                                 He's great with kids and would be perfect for an active family.
                             </p>
-                            <a href="adopt-puppy.html?name=Max&age=3 months&breed=Golden Retriever&image=images/Images/Happy puppy.jpeg.jpg&description=Max is a playful and energetic pup who loves to run around! He's great with kids and would be perfect for an active family." class="btn btn-primary">Adopt Me! ❤️</a>
+                            <a href="adopt-puppy.php?name=Max&age=3 months&breed=Golden Retriever&image=images/Images/Happy puppy.jpeg.jpg&description=Max is a playful and energetic pup who loves to run around! He's great with kids and would be perfect for an active family." class="btn btn-primary">Adopt Me! ❤️</a>
                         </div>
                     </div>
                     
@@ -181,7 +181,7 @@ session_start();
                                 Bella is a sweet and gentle soul who loves cuddles and bath time! 
                                 She's calm and would be great for first-time dog owners.
                             </p>
-                            <a href="adopt-puppy.html?name=Bella&age=2 months&breed=Labrador Mix&image=images/Images/Bath puppy.jpeg.jpg&description=Bella is a sweet and gentle soul who loves cuddles and bath time! She's calm and would be great for first-time dog owners." class="btn btn-primary">Adopt Me! ❤️</a>
+                            <a href="adopt-puppy.php?name=Bella&age=2 months&breed=Labrador Mix&image=images/Images/Bath puppy.jpeg.jpg&description=Bella is a sweet and gentle soul who loves cuddles and bath time! She's calm and would be great for first-time dog owners." class="btn btn-primary">Adopt Me! ❤️</a>
                         </div>
                     </div>
                     
@@ -199,7 +199,7 @@ session_start();
                                 for a loving home that can keep them together. Adopting all four means quadruple 
                                 the love, joy, and adorable puppy moments! 🐶🐶🐶🐶
                             </p>
-                            <a href="adopt-puppy.html?name=Charlie, Luna, Max %26 Daisy&age=3-4 months&breed=Bonded Littermates&image=images/Images/resting puppies.jpeg.jpg&description=These four inseparable siblings love to cuddle and nap together! They're looking for a loving home that can keep them together. Adopting all four means quadruple the love, joy, and adorable puppy moments!" class="btn btn-primary">Adopt Us! ❤️</a>
+                            <a href="adopt-puppy.php?name=Charlie, Luna, Max %26 Daisy&age=3-4 months&breed=Bonded Littermates&image=images/Images/resting puppies.jpeg.jpg&description=These four inseparable siblings love to cuddle and nap together! They're looking for a loving home that can keep them together. Adopting all four means quadruple the love, joy, and adorable puppy moments!" class="btn btn-primary">Adopt Us! ❤️</a>
                         </div>
                     </div>
                 </div>
@@ -220,8 +220,8 @@ session_start();
                 <p>Every contribution makes a difference in a puppy's life</p>
                 <div class="cta-buttons">
                     <a href="available-puppies.html" class="btn btn-white">Adopt a Puppy</a>
-                    <a href="submit-stray.html" class="btn btn-white">Report a Stray</a>
-                    <a href="contact.html" class="btn btn-outline">Get Involved</a>
+                    <a href="submit-stray.php" class="btn btn-white">Report a Stray</a>
+                    <a href="contact.php" class="btn btn-outline">Get Involved</a>
                 </div>
             </div>
         </section>
@@ -242,8 +242,8 @@ session_start();
                     <li><a href="index.php">Home</a></li>
                     <li><a href="available-puppies.html">Adopt</a></li>
                     <li><a href="rescue-stories.html">Stories</a></li>
-                    <li><a href="submit-stray.html">Report</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="submit-stray.php">Report</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
                 
                 <!-- Social Media Icons (Placeholder) -->

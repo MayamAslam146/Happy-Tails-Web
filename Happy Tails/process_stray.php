@@ -8,13 +8,13 @@ require_once 'config.php';
 // Check if form was submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-    // Get and sanitize form data
-    $person_name = sanitize_input($_POST['name']);
+    // Get and sanitize form data - matching form field names from submit-stray.php
+    $person_name = isset($_POST['reporter-name']) ? sanitize_input($_POST['reporter-name']) : (isset($_POST['name']) ? sanitize_input($_POST['name']) : '');
     $email = sanitize_input($_POST['email']);
-    $phone = sanitize_input($_POST['phone']);
+    $phone = isset($_POST['contact-number']) ? sanitize_input($_POST['contact-number']) : (isset($_POST['phone']) ? sanitize_input($_POST['phone']) : '');
     $location = sanitize_input($_POST['location']);
     $puppy_condition = sanitize_input($_POST['condition']);
-    $description = isset($_POST['description']) ? sanitize_input($_POST['description']) : '';
+    $description = isset($_POST['message']) ? sanitize_input($_POST['message']) : (isset($_POST['description']) ? sanitize_input($_POST['description']) : '');
     $urgency = isset($_POST['urgency']) ? sanitize_input($_POST['urgency']) : 'medium';
     
     // Validation

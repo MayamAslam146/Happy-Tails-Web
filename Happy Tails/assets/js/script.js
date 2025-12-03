@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functions when page loads
     initNavbar();
     initScrollToTop();
-    initFormValidation();
+    // initFormValidation(); // DISABLED - PHP handles all form validation now
     initAdoptButtons();
     initMobileMenu();
     
@@ -121,7 +121,15 @@ function initFormValidation() {
         form.addEventListener('submit', function(e) {
             const formId = form.id || '';
             
-            // For signin/signup forms, do basic validation but let PHP handle everything
+            // For ALL forms - just let PHP handle everything
+            // No alerts, no preventDefault for contact, stray, adoption forms
+            if (formId.includes('contact') || formId.includes('stray') || 
+                formId.includes('adoption') || formId.includes('adopt')) {
+                // Just submit - PHP will handle validation and messages
+                return true;
+            }
+            
+            // For signin/signup forms, minimal validation
             if (formId.includes('signin') || formId.includes('sign-in') || 
                 formId.includes('signup') || formId.includes('sign-up')) {
                 
@@ -157,52 +165,12 @@ function initFormValidation() {
                     }
                 }
                 
-                // Let form submit naturally to PHP - no preventDefault, no alert
-                return;
+                // Let form submit naturally
+                return true;
             }
             
-            // For all other forms, prevent default and validate
-            e.preventDefault();
-            
-            // Get all required fields in this form
-            const requiredFields = form.querySelectorAll('[required]');
-            let isValid = true;
-            let emptyFields = [];
-            
-            // Check each required field
-            requiredFields.forEach(field => {
-                // Remove any previous error styling
-                field.style.borderColor = '';
-                
-                // Check if field is empty
-                if (!field.value.trim()) {
-                    isValid = false;
-                    emptyFields.push(field.previousElementSibling.textContent);
-                    // Add error styling
-                    field.style.borderColor = '#ff4444';
-                }
-            });
-            
-            // Validate email format if email field exists
-            const emailField = form.querySelector('input[type="email"]');
-            if (emailField && emailField.value.trim()) {
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(emailField.value)) {
-                    isValid = false;
-                    emailField.style.borderColor = '#ff4444';
-                    alert('⚠️ Please enter a valid email address.');
-                    return;
-                }
-            }
-            
-            // If validation fails, show error message
-            if (!isValid) {
-                alert('⚠️ Please fill in all required fields:\n\n' + emptyFields.join('\n'));
-                return;
-            }
-            
-            // If validation passes, show success message
-            showSuccessMessage(form);
+            // For any other forms, just submit naturally
+            return true;
         });
     });
 }
@@ -534,7 +502,8 @@ We're so excited for you! 🎊
 
 // Initialize adoption form when page loads
 if (document.getElementById('adoption-form')) {
-    initAdoptionForm();
+    // Disabled JavaScript validation - PHP handles it now
+    // initAdoptionForm();
     loadPuppyDataFromURL();
 }
 
