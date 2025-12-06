@@ -1,0 +1,148 @@
+# Happy Tails - Git Ignore File
+
+# ==========================================
+# Documentation Files (Ignore all except README.md)
+# ==========================================
+
+# Ignore all .md files
+*.md
+
+# But keep README.md
+!README.md
+
+# Ignore all .txt files
+*.txt
+
+# ==========================================
+# Test & Debug Files
+# ==========================================
+
+test.php
+test_connection.php
+
+# ==========================================
+# Database Files (Don't commit sensitive data)
+# ==========================================
+
+# Database dumps and backups
+*.sql
+*.sql.gz
+*.sql.zip
+
+# But keep the initial schema
+!happytails.sql
+
+# ==========================================
+# Configuration Files (Sensitive)
+# ==========================================
+
+# Don't commit config with database credentials
+# config.php
+
+# Note: config.php is commented out for now
+# In production, create config.sample.php and ignore config.php
+
+# ==========================================
+# Server & Environment Files
+# ==========================================
+
+.htaccess.bak
+.htpasswd
+
+# Apache/XAMPP logs
+*.log
+error_log
+
+# ==========================================
+# IDE & Editor Files
+# ==========================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Cursor IDE
+.cursor/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# PhpStorm
+.idea/
+*.iml
+
+# ==========================================
+# Operating System Files
+# ==========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+
+# Linux
+*~
+
+# ==========================================
+# Temporary Files
+# ==========================================
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Cache files
+*.cache
+
+# ==========================================
+# Dependencies & Packages (if added later)
+# ==========================================
+
+# Composer
+/vendor/
+composer.lock
+
+# Node modules (if you add npm later)
+node_modules/
+package-lock.json
+
+# ==========================================
+# Build & Distribution
+# ==========================================
+
+# Distribution folder
+/dist/
+/build/
+
+# ==========================================
+# User Uploaded Files (Future)
+# ==========================================
+
+# User uploads folder (when implemented)
+/uploads/
+/user-uploads/
+
+# ==========================================
+# Backup Files
+# ==========================================
+
+*.bak
+*.backup
+*backup/
+
+# ==========================================
+# End of .gitignore
+# ==========================================
+
